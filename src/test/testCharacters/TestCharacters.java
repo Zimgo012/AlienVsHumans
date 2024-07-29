@@ -1,37 +1,37 @@
 package test.testCharacters;
 
-import main.characters.Entity;
+import main.characters.Characters;
 import main.characters.Soldier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertNotEquals;
 
-class TestEntity {
+class TestCharacters{
 
-    private static Entity entity1;
-    private static Entity entity2;
+    private static Characters characters1;
+    private static Characters characters2;
 
     @BeforeEach
      void setup(){
         System.out.println("Creating Soldier");
-        entity1 = new Soldier();
-        entity2 = new Soldier();
+        characters1 = new Soldier("Ry");
+        characters2 = new Soldier("JC");
     }
 
 
     @Test
     void testAttack(){
         System.out.println("== Testing Attack ✅ ==");
-        entity1.attack(entity2);
-        assertNotEquals(100,entity2.getHealth());
+        characters1.attack(characters2);
+        assertNotEquals(100, characters2.getHealth());
     }
 
     @Test
     void testTakeDamage(){
         System.out.println("== Testing Taking Damage ✅ ==");
-        entity1.getDamage();
-        assertNotEquals(100,entity1);
+        characters1.getDamage();
+        assertNotEquals(100, characters1);
     }
 
 

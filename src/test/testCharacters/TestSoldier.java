@@ -1,6 +1,6 @@
 package test.testCharacters;
 
-import main.characters.Entity;
+import main.characters.Characters;
 import main.characters.Soldier;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,27 +14,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TestSoldier{
 
-    private static Entity entity;
+    private static Characters characters;
 
     @BeforeAll
     static void setup(){
         System.out.println("Creating Soldier");
-        entity = new Soldier();
+        characters = new Soldier("Ry");
     }
 
 
     @Test
     void testHealth() {
         System.out.println("Testing health");
-        assertEquals(100,entity.getHealth());
+        assertEquals(100, characters.getHealth());
         System.out.println("Test complete!");
     }
 
     @Test
     void testArmor(){
         System.out.println("Testing armor");
-        assertEquals(1,entity.getArmor());
+        assertEquals(1, characters.getArmor());
         System.out.println("Test complete!");
+    }
+
+    @Test
+    void testUseSkills(){
+        characters.useSkills();
     }
 
 

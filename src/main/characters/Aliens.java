@@ -1,6 +1,6 @@
 package main.characters;
 
-public class Aliens extends Entity {
+public class Aliens extends Characters {
 
 
     public Aliens(String name, int health, int armor, int damage, int xp) {

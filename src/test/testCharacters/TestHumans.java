@@ -1,6 +1,6 @@
 package test.testCharacters;
 
-import main.characters.Entity;
+import main.characters.Characters;
 import main.characters.Humans;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,20 +10,20 @@ import static org.junit.Assert.assertNotEquals;
 
 class TestHumans {
 
-    private static Entity entity1;
+    private static Characters characters1;
 
     @BeforeEach
     void setup(){
         System.out.println("Creating Human");
-        entity1 = new Humans("Assasin",100,10,10,1);
+        characters1 = new Humans("Assasin",100,10,10,1);
     }
 
 
     @Test
     void testWearArmor(){
         System.out.println("== Testing Wear Armor  ==");
-        entity1.setArmor(entity1.getArmor() + 2);
-        assertEquals(12 ,entity1.getArmor());
+        characters1.setArmor(characters1.getArmor() + 2);
+        assertEquals(12 , characters1.getArmor());
         System.out.println("== Test succeed! ✅ ==");
 
     }
@@ -31,21 +31,21 @@ class TestHumans {
     @Test
     void testUserMedkit(){
         System.out.println("== Testing Use Medkit  ==");
-        entity1.setHealth(entity1.getHealth() + 5);
-        assertEquals(105, entity1.getHealth());
+        characters1.setHealth(characters1.getHealth() + 5);
+        assertEquals(105, characters1.getHealth());
         System.out.println("== Test succeed! ✅ ==");
     }
 
     @Test
     void testLevelUp(){
-        entity1.setHealth(entity1.getHealth() + 10);
-        entity1.setDamage(entity1.getDamage() + 2);
-        entity1.setXp(entity1.getXp() + 1);
-        assertEquals(110, entity1.getHealth());
+        characters1.setHealth(characters1.getHealth() + 10);
+        characters1.setDamage(characters1.getDamage() + 2);
+        characters1.setXp(characters1.getXp() + 1);
+        assertEquals(110, characters1.getHealth());
         System.out.println("== Test succeed! ✅ ==");
-        assertEquals(12, entity1.getDamage());
+        assertEquals(12, characters1.getDamage());
         System.out.println("== Test succeed! ✅ ==");
-        assertEquals(2, entity1.getXp());
+        assertEquals(2, characters1.getXp());
         System.out.println("== Test succeed! ✅ ==");
     }
 
