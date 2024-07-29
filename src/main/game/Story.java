@@ -3,6 +3,7 @@ package main.game;
 import main.characters.Characters;
 import main.characters.Soldier;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Story {
@@ -24,7 +25,7 @@ public class Story {
     }
 
     //Hero Selection
-    public static Characters choosingHero (){
+    public static Characters choosingHero () {
         Utilities.messageDelay(4000);
         Utilities.clearConsole();
         System.out.println("Welcome to the frontline of the interstellar war! " +
@@ -38,9 +39,9 @@ public class Story {
 
         System.out.println(
                 "Description: Equipped with advanced military training and high-tech weaponry, the Human Soldier is a balanced fighter, skilled in both offense and defense. \n" +
-                "Base Health: 90\n" +
-                "Base Damage: 5\n" +
-                "Base Armor: 1");
+                        "Base Health: 90\n" +
+                        "Base Damage: 5\n" +
+                        "Base Armor: 1");
         System.out.println();
 
         Utilities.messageDelay(4000);
@@ -50,12 +51,23 @@ public class Story {
 
         int option = scan.nextInt();
 
-        if (option == 1){
-            return soldierSelected();
-        } else{
-            return null;
+        try {
+
+            if (option == 1) {
+                return soldierSelected();
+            } else {
+                throw new GameExceptions("Please enter 1 only");
+            }
+
+        } catch (GameExceptions e) {
+            System.err.println("Error: " + e.getMessage());
+        } catch (InputMismatchException f){
+            System.err.println("Error: Please enter numbers only.");
         }
+
+        return null;
     }
+
     public static Characters soldierSelected(){
         Utilities.clearConsole();
         System.out.println("You have chosen to be a Soldier. Prepare yourself for the epic clash between species, and may victory be yours!" +
@@ -102,51 +114,79 @@ public class Story {
         System.out.println("Objective: Defend Apex Grove City from initial Zepharan Assult");
 
         System.out.println("Captain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!");
-        GameLogic.randomEncounters(95,80,100);
+        GameLogic.randomEncounters(100,0,0);
         System.out.println("Captain Serge: Good job, soldier.");
 
         Utilities.messageDelay(3000);
         System.out.println("Captain Serge: Look out! An alien is charging at us. Take it down!");
-        GameLogic.randomEncounters(98,99,100);
+        GameLogic.randomEncounters(100,0,0);
         System.out.println("Captain Serge: Nice work. That alien won't be bothering us anymore.");
 
         Utilities.messageDelay(3000);
         System.out.println("Captain Serge: Heads up! An alien drone is circling overhead.");
-        GameLogic.randomEncounters(98,99,100);
+        GameLogic.randomEncounters(100,0,0);
         System.out.println("Captain Serge: Great!. That drone is scrap metal now.");
 
         Utilities.messageDelay(3000);
         System.out.println("Captain Serge: Incoming! An alien form above. We need to take it out, fast");
-        GameLogic.randomEncounters(98,99,100);
+        GameLogic.randomEncounters(100,0,0);
         System.out.println("Captain Serge: Well done, soldier. That heavy was a tough one.");
+        Utilities.messageDelay(1000);
+        System.out.println("Captain Serge: Now lets advance to the military base");
 
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-
+        //add more
         //Save Load State
 
     }
     public static void actOneMissionTwo(){
 
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
-//        GameLogic.randomEncounters();
+        Utilities.messageDelay(2000);
+        Utilities.clearConsole();
+        System.out.println("Captain Serge and the player are advancing towards the military base, " +
+                "but the path is fraught with alien resistance." +
+                "As they approach a critical junction, they encounter a random alien threat.");
+
+        Utilities.messageDelay(3000);
+        System.out.println("Watch your step! We’ve got an alien ambush up ahead. They’re trying to block our advance. Get ready!");
+        GameLogic.randomEncounters(100,0,0);
+        System.out.println("Captain Serge: Good job, soldier.");
+
+        Utilities.messageDelay(3000);
+        System.out.println("Hold on! We’ve got an alien saboteur planting explosives around our route. We need to stop them before they destroy our path!");
+        GameLogic.randomEncounters(100,0,0);
+        System.out.println("Captain Serge: Well done.");
+
+        Utilities.messageDelay(3000);
+        System.out.println("Incoming! Alien reinforcements are dropping in from the skies. We need to secure the area before they overwhelm us!");
+        GameLogic.randomEncounters(100,0,0);
+        System.out.println("Captain Serge: URAAAAA!");
+
+        Utilities.messageDelay(3000);
+        System.out.println("Look out! An alien scout is leading a drone pair. The scout’s calling the shots, and the drones will provide cover. Take them down!");
+        GameLogic.randomEncounters(100,0,0);
+        System.out.println("Captain Serge: Well done!");
+
+        Utilities.messageDelay(3000);
+        System.out.println("Alert! An alien reconnaissance unit is gathering intel on our movements. " +
+                            "We need to eliminate them before they relay our position!");
+        GameLogic.randomEncounters(100,0,0);
+        System.out.println("Captain Serge: Excellent job with the reconnaissance unit. " +
+                        "Our movements won’t be compromised anymore. We’re almost there.");
+
+
     }
     public static void actOneOutro(){
 
-        Utilities.messageDelay(1000);
-        System.out.println("");
+        Utilities.messageDelay(3000);
+        Utilities.clearConsole();
+        System.out.println("We’ve made significant progress, soldier. The battles have been fierce, " +
+                "but we’ve managed to push back the alien forces from key positions. " +
+                "However, our fight is far from over. The Zepharans are regrouping and preparing their next move. " +
+                "We need to stay vigilant.");
+        Utilities.clearConsole();
+        System.out.println("Act1 Ended....");
+        Utilities.messageDelay(2000);
+        System.out.println("Game to be continued stay tune..");
 
     }
 
