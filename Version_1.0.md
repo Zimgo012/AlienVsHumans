@@ -27,10 +27,10 @@
 ## Helpful Diagrams:
 
 ### Story:
-![Story Diagram](Diagrams/Main Story.png)
+![Story Diagram](Diagrams/Main_Story.png)
 
 ### Battle Systems:
-![DBattle-System Diagram](Diagrams/Battle System.png)
+![DBattle-System Diagram](Diagrams/Battle_System.png)
 
 ### Characters
 ![Characters Diagram](Diagrams/Characters.png)
