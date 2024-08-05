@@ -1,5 +1,6 @@
 package org.zimgo.aliensvshumans.game;
 
+import org.zimgo.aliensvshumans.characters.Assasin;
 import org.zimgo.aliensvshumans.characters.Soldier;
 import org.zimgo.aliensvshumans.characters.Characters;
 
@@ -15,21 +16,58 @@ public class Story {
     static boolean flag3 = true;
 
     //intro
-    public static void intro(){
-        System.out.println("In the year 2147, Earth has reached a pinnacle of technological advancement and space exploration. " +
+    public static String intro(){
+
+        String message = "In the year 2147, Earth has reached a pinnacle of technological advancement and space exploration. " +
                 "\nHumanity has established colonies on Mars and several moons of Jupiter. " +
                 "\nHowever, their presence in the cosmos has not gone unnoticed. " +
                 "\nA highly advanced alien species, the Zepharans, " +
-                "\nhave been monitoring Earth's progress and view humanity as a threat to their dominance in the galaxy.");
+                "\nhave been monitoring Earth's progress and view humanity as a threat to their dominance in the galaxy.";
+
+        return message;
+
 
     }
 
+    //Pre-Hero Selection Dialog
+    public static String intro2(){
+        return  "Welcome to the frontline of the interstellar war! " +
+                "\nBefore you dive into the battle between humans and aliens, you must choose your warrior.";
+    }
+
     //Hero Selection
+
+    //Hero Start Information
+    public static String soldierInfo(){
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("================");
+        builder.append("\n" + new Soldier().getName());
+        builder.append("\n================");
+        builder.append("\nBase Health : " + new Soldier().getHealth());
+        builder.append("\nBase Damage: " + new Soldier().getDamage());
+        builder.append("\nBase Armor: " + new Soldier().getArmor());
+
+        return builder.toString();
+
+    }
+    public static String assassinInfo(){
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("================");
+        builder.append("\n" + new Assasin().getName());
+        builder.append("\n================");
+        builder.append("\nBase Health : " + new Assasin().getHealth());
+        builder.append("\nBase Damage: " + new Assasin().getDamage());
+        builder.append("\nBase Armor: " + new Assasin().getArmor());
+
+        return builder.toString();
+
+    }
+
     public static Characters choosingHero () {
-        Utilities.messageDelay(4000);
-        Utilities.clearConsole();
-        System.out.println("Welcome to the frontline of the interstellar war! " +
-                "\nBefore you dive into the battle between humans and aliens, you must choose your warrior.");
 
         Utilities.messageDelay(3000);
         Utilities.clearConsole();
@@ -67,7 +105,6 @@ public class Story {
 
         return null;
     }
-
     public static Characters soldierSelected(){
         Utilities.clearConsole();
         System.out.println("You have chosen to be a Soldier. Prepare yourself for the epic clash between species, and may victory be yours!" +
@@ -78,7 +115,7 @@ public class Story {
 
         String name = scan.nextLine();
 
-        Characters player = new Soldier(name);
+        Characters player = new Soldier();
 
         System.out.println("Welcome " + name + "!");
         Utilities.messageDelay(2000);
@@ -196,16 +233,6 @@ public class Story {
     public static void actTwoMissionTwo(){}
     public static void actTwoOutro(){}
 
-    //actThree
-    public static void actThreeIntro(){}
-    public static void actThreeMissionOne(){}
-    public static void actThreeMissionTwo(){}
-    public static void actThreeOutro(){}
-
-    //Final
-    public static void finalIntro(){}
-    public static void finalBoss(){}
-    public static void finalOutro(){}
 
     //random encounters
     public static void encounters(){}

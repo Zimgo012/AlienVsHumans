@@ -1,0 +1,70 @@
+.root{
+    -fx-background-color: black;
+
+}
+
+
+.label{
+
+    -fx-font-family: Hack;
+    -fx-text-fill: white;
+    -fx-text-anchor: middle;
+}
+
+.button{
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+    -fx-display: inline-block;
+    -fx-outline: none;
+    -fx-cursor: hand;
+    -fx-font-weight: 500;
+    -fx-height: 36px;
+    line-height: 34px;
+    -fx-color: #ffffff;
+    -fx-transition: 0.3s ease-in-out;
+    -fx-font-size: 14px;
+    -fx-background-color: #29bdce;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 15px;
+
+}
+
+
+.button:hover {
+    -fx-color: #ffffff;
+    -fx-background-color: #8c0998;
+    -fx-text-fill: white;
+}
+
+
+.text{
+    -fx-font-family: Hack;
+}
+
+
+/*buttons*/
+#nextButton{
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+#previousButton{
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+
+/*text*/
+#characterSelection{
+    -fx-font-size: 25px;
+    -fx-font-family: Hack;
+    -fx-fill: #3feec6;
+    -fx-padding: 350 0 0 0;
+}
+
+#characterInformation{
+        -fx-font-size: 15px;
+        -fx-font-family: "Andale Mono";
+        -fx-fill: white;
+        -fx-padding: 350 0 0 0;
+}

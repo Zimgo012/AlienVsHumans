@@ -2,12 +2,13 @@ package org.zimgo.aliensvshumans.characters;
 
 import java.util.Scanner;
 
-public class Soldier  extends  Humans{
+public class Assasin extends  Humans{
     Scanner scan;
-    String[] skills = {"Gunglaze", "Medkit"};
 
-    public Soldier() {
-        super("Soldier", 90, 1, 5, 0);
+    String[] skills = {"Gunglaze", "Medkit"}; //Change this later
+
+    public Assasin() {
+        super("Assasin", 60, 1, 10, 0);
         scan = new Scanner(System.in);
     }
 

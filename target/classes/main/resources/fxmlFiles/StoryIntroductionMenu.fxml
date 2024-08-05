@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.zimgo.aliensvshumans.Controllers.StoryIntroductionMenu"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+
+
+        <StackPane xmlns:fx="http://javafx.com/fxml/1">
+            <ImageView fx:id="backgroundImageView" fitHeight="600" fitWidth="600" opacity="0.39">
+                <image>
+                    <Image url="@../imageResources/StoryIntroductionBackground.jpg" />
+                </image>
+            </ImageView>
+            <Rectangle fill="black" height="600" opacity="0.3" width="600" />
+
+            <VBox alignment="TOP_CENTER" prefHeight="400" prefWidth="400" spacing="0" xmlns:fx="http://javafx.com/fxml/1">
+                <Text fx:id="IntroDialog" styleClass="main-text" text="" wrappingWidth="550">
+                    <VBox.margin>
+                        <Insets top="150.0" />
+                    </VBox.margin>
+                </Text>
+
+            </VBox>
+
+
+        </StackPane>
+
+
+        <Button fx:id="settingButton" layoutX="510" layoutY="10.0" mnemonicParsing="false"  prefWidth="10" prefHeight="30" text = ".." />
+        <Button fx:id="continueButton" layoutX="230" layoutY="340.0" mnemonicParsing="false"  prefWidth="150" prefHeight="30" text = "continue" onAction="#dialog"/>
+        <Button fx:id="createChar" layoutX="70" layoutY="510.0" mnemonicParsing="false"  prefWidth="200" prefHeight="30" text = "Create Character" visible="false" onAction="#createCharacter" />
+        <Button fx:id="loadChar" layoutX="70" layoutY="470.0" mnemonicParsing="false"  prefWidth="200" prefHeight="30" text = "Load Character" visible="false" />
+        <Button fx:id="backToMain" layoutX="370" layoutY="470.0" mnemonicParsing="false"
+                prefWidth="200" prefHeight="30" text = "Main Menu" visible="false" onAction="#setBackToMain" />
+
+
+
+
+
+    </children>
+
+</AnchorPane>
+
+
