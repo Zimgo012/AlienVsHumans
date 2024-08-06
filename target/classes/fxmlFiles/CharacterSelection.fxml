@@ -42,8 +42,12 @@
             </VBox>
         </StackPane>
 
-        <Button fx:id="nextButton" layoutX="140" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "start" onAction="#nextButton"/>
-        <Button fx:id="previousButton" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "previous" onAction="#previousButton" visible="false"/>
+        <Button fx:id="nextButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "start" onAction="#nextButton"/>
+        <Button fx:id="previousButton" layoutX="340" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "previous" onAction="#previousButton" visible="false"/>
+        <Button fx:id="backToMain" layoutX="140" layoutY="500.0" mnemonicParsing="false"
+                prefWidth="100" prefHeight="30" text = "Main Menu" onAction="#setBackToMain"/>
+        <Button fx:id="chooseCharacter" layoutX="340" layoutY="200.0" mnemonicParsing="false"
+                prefWidth="240" prefHeight="30" text = "Choose this character" visible="false" />
 
 
     </children>

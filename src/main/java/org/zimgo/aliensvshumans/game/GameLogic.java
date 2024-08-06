@@ -193,9 +193,8 @@ public class GameLogic {
     //MAIN Game Functions
     public static void startGame(){
 
-        boolean start = true;
-
-        Story.intro();
+       boolean start = true;
+       Story.intro();
        player = Story.choosingHero(); // initialize new player
 
         isRunning = true;
