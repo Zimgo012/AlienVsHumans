@@ -43,30 +43,15 @@
 
 
 /*buttons*/
-#nextButton{
-    -fx-scale-x: 1.0;
-    -fx-scale-y: 1.0;
-}
 
-#previousButton{
-    -fx-scale-x: 1.0;
-    -fx-scale-y: 1.0;
-}
-
-.selectCharacterButton{
+#startGame{
     -fx-scale-x: 1.0;
     -fx-scale-y: 1.0;
 }
 
 /*text*/
-#characterSelection{
-    -fx-font-size: 25px;
-    -fx-font-family: Hack;
-    -fx-fill: #3feec6;
-    -fx-padding: 350 0 0 0;
-}
 
-#characterInformation{
+#dialogHolder{
         -fx-font-size: 15px;
         -fx-font-family: "Andale Mono";
         -fx-fill: white;

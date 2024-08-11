@@ -11,13 +11,23 @@ import java.util.Scanner;
 public class GameLogic {
 
     static Scanner  scan = new Scanner(System.in);
+
     static Characters player;
+
     static int actNumber = 1;
     static boolean isRunning;
-
     int actnumber  = 1;
 
+    public static void setPlayer(Characters player) {
+        GameLogic.player = player;
+    }
+
+    public static Characters getPlayer() {
+        return player;
+    }
+
     //showCharacterStats
+
     public static void showCharacterDetails(Characters character){
         System.out.println(character.getName());
         System.out.println("Armor: " + character.getArmor());
@@ -144,7 +154,7 @@ public class GameLogic {
         else if (randomValue <= prob2){ //15% probability
             System.out.println("Character is resting");
             Utilities.messageDelay(1000);
-        }else if (randomValue <= prob3){//15% probability
+        }else if (randomValue <= prob3){//15% probabilityq
             System.out.println("uraaaa");
         }
     }
@@ -192,33 +202,6 @@ public class GameLogic {
 
     //MAIN Game Functions
     public static void startGame(){
-
-       boolean start = true;
-       Story.intro();
-       player = Story.choosingHero(); // initialize new player
-
-        isRunning = true;
-
-        //Story Stucture
-        while(isRunning){
-
-            //Act1
-            Story.actOneIntro();
-            Story.actOneMissionOne();
-            Story.actOneMissionTwo();
-            printMenu();
-            if (!isRunning) break;
-            Story.actOneOutro();
-            isRunning = false;
-
-
-
-
-        }
-
-        System.out.println("Thank you for playing the game.");
-
-
 
     }
 

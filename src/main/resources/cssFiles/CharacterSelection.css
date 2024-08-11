@@ -53,14 +53,9 @@
     -fx-scale-y: 1.0;
 }
 
-#backToMain{
-    -fx-scale-x: 0.9;
-    -fx-scale-y: 0.9;
-}
-
-#chooseCharacter{
-    -fx-scale-x: 0.9;
-    -fx-scale-y: 0.9;
+.selectCharacterButton{
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
 }
 
 /*text*/
