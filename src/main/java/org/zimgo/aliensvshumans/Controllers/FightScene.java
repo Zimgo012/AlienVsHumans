@@ -1,6 +1,5 @@
 package org.zimgo.aliensvshumans.Controllers;
 
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,26 +9,28 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.zimgo.aliensvshumans.characters.Assasin;
+import org.zimgo.aliensvshumans.characters.Soldier;
 import org.zimgo.aliensvshumans.game.GameLogic;
+import org.zimgo.aliensvshumans.game.Story;
 
 import java.io.IOException;
 
-public class InGameController {
+public class FightScene {
 
     Parent root;
     Stage stage;
     Scene scene;
-    Timeline timeline;
 
+    //Text
     @FXML
-    public Text dialogHolder;
-    public Button startGame;
+    Text characterInformation;
+    @FXML
     public Button backToMain;
-    public Button fight;
+    public Text dialogHolder;
 
 
-
-    //Buttons on Action
+    //Buttons
     public void setBackToMain(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/Main.fxml"));
@@ -50,39 +51,10 @@ public class InGameController {
         stage.show();
     }
 
-    public void startGame(ActionEvent event) throws IOException {
-        startGame.setVisible(false);
-        timeline = new Timeline();
-        GameLogic.startGame(this, timeline);
-    }
+    public void attack(ActionEvent event) throws IOException {}
 
-    public void fight(ActionEvent event) throws IOException {
+    //Helper Methods
 
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/FightScene.fxml"));
-        Parent fightRoot = loader.load();
-
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-
-        Scene fightScene = new Scene(fightRoot, 600, 600);
-
-
-        String css = this.getClass().getResource("/cssFiles/FightScene.css").toExternalForm();
-        fightScene.getStylesheets().add(css);
-
-
-        stage.setTitle("Invasion Earth 3195");
-        stage.setScene(fightScene);
-        stage.setResizable(false);
-        stage.show();
-
-
-    }
-
-
-    //Helper Class
     public void setDialog(String message) {
         dialogHolder.setText(message);
     }
@@ -91,9 +63,9 @@ public class InGameController {
         dialogHolder.setText("");
     }
 
-    public void showButtons(){
-        fight.setVisible(true);
-    }
+
+
+
 
 
 }

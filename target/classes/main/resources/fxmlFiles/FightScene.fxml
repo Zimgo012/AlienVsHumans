@@ -13,7 +13,7 @@
 <?import javafx.geometry.Insets?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.zimgo.aliensvshumans.Controllers.InGameController"
+            fx:controller="org.zimgo.aliensvshumans.Controllers.FightScene"
             prefHeight="400.0" prefWidth="600.0">
 
     <children>
@@ -22,14 +22,13 @@
         <StackPane xmlns:fx="http://javafx.com/fxml/1">
             <ImageView fx:id="backgroundImageView" fitHeight="600" fitWidth="600" opacity="0.39">
                 <image>
-                    <Image url="@../imageResources/MainGame.jpg" />
+                    <Image url="@../imageResources/FightScene.gif" />
                 </image>
             </ImageView>
             <Rectangle fill="black" height="600" opacity="0.3" width="600" />
 
             <VBox alignment="TOP_CENTER" prefHeight="400" prefWidth="400" spacing="0" xmlns:fx="http://javafx.com/fxml/1">
-
-                <Text fx:id="dialogHolder" styleClass="main-text" text="" wrappingWidth="550">
+                <Text fx:id="characterInformation" styleClass="main-text" text="" wrappingWidth="550">
                     <VBox.margin>
                         <Insets top="120.0" />
                     </VBox.margin>
@@ -38,15 +37,10 @@
             </VBox>
         </StackPane>
 
-        <Button fx:id="startGame" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Start"  onAction="#startGame"/>
         <Button fx:id="backToMain" layoutX="370" layoutY="470.0" mnemonicParsing="false"
-                prefWidth="200" prefHeight="30" text = "Main Menu" onAction="#setBackToMain" />
-        <Button fx:id="fight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#fight" visible="false"/>
+                prefWidth="200" prefHeight="30" text = "Main Menu" onAction="#setBackToMain"/>
 
-
-
-
-
+        <Button fx:id="" layoutX="160" layoutY="450.0" mnemonicParsing="false"  prefWidth="100" prefHeight="20" text = "Attack" />
 
     </children>
 

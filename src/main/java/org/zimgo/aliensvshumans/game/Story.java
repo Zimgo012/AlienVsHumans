@@ -67,113 +67,49 @@ public class Story {
 
     }
 
-    public static Characters choosingHero () {
 
-        Utilities.messageDelay(3000);
-        Utilities.clearConsole();
-        System.out.println("====================");
-        System.out.println("[1] Human Soldier");
-        System.out.println("====================");
-
-        System.out.println(
-                "Description: Equipped with advanced military training and high-tech weaponry, the Human Soldier is a balanced fighter, skilled in both offense and defense. \n" +
-                        "Base Health: 90\n" +
-                        "Base Damage: 5\n" +
-                        "Base Armor: 1");
-        System.out.println();
-
-        Utilities.messageDelay(4000);
-        Utilities.clearConsole();
-        System.out.println("====================");
-        System.out.println("Press [1] for Soldier");
-
-        int option = scan.nextInt();
-
-        try {
-
-            if (option == 1) {
-                return soldierSelected();
-            } else {
-                throw new GameExceptions("Please enter 1 only");
-            }
-
-        } catch (GameExceptions e) {
-            System.err.println("Error: " + e.getMessage());
-        } catch (InputMismatchException f){
-            System.err.println("Error: Please enter numbers only.");
-        }
-
-        return null;
-    }
-    public static Characters soldierSelected(){
-        Utilities.clearConsole();
-        System.out.println("You have chosen to be a Soldier. Prepare yourself for the epic clash between species, and may victory be yours!" +
-                "\nBut before that, can you let us know your name?");
-
-        scan.nextLine();
-        System.out.println("Enter your name:");
-
-        String name = scan.nextLine();
-
-        Characters player = new Soldier();
-
-        System.out.println("Welcome " + name + "!");
-        Utilities.messageDelay(2000);
-        Utilities.clearConsole();
-        return player;
-
-
-
-    }
+    //Dialogs
 
     //actOne
-    public static void actOneIntro(){
+    public static String actOneIntro(){
 
-        Utilities.messageDelay(1000);
-        System.out.println("The game begins with the sudden appearance of Zepharan motherships in Earth's orbit. " +
+       return "The game begins with the sudden appearance of Zepharan motherships in Earth's orbit. " +
                 "\nThe Zepharans launch a coordinated attack on major cities, disabling communication networks, power grids, and military defenses. " +
-                "\n");
-
-
-
-
-
+                "\n";
     }
-    public static void actOneMissionOne(){
-        Utilities.messageDelay(2000);
-        Utilities.clearConsole();
-        System.out.println("=======================");
-        System.out.println("=====  Mission 1  =====");
-        System.out.println("=======================");
+    public static String actOneMissionOneTitle(){
+        return "=======================" + "\n=====  Mission 1  =====" + "\n=======================";
 
-        Utilities.messageDelay(2000);
-        Utilities.clearConsole();
-        System.out.println("Objective: Defend Apex Grove City from initial Zepharan Assult");
-
-        System.out.println("Captain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Good job, soldier.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Captain Serge: Look out! An alien is charging at us. Take it down!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Nice work. That alien won't be bothering us anymore.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Captain Serge: Heads up! An alien drone is circling overhead.");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Great!. That drone is scrap metal now.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Captain Serge: Incoming! An alien form above. We need to take it out, fast");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Well done, soldier. That heavy was a tough one.");
-        Utilities.messageDelay(1000);
-        System.out.println("Captain Serge: Now lets advance to the military base");
+//        System.out.println("Objective: Defend Apex Grove City from initial Zepharan Assult");
+//
+//        System.out.println("Captain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!");
+//        GameLogic.randomEncounters(100,0,0);
+//        System.out.println("Captain Serge: Good job, soldier.");
+//
+//        Utilities.messageDelay(3000);
+//        System.out.println("Captain Serge: Look out! An alien is charging at us. Take it down!");
+//        GameLogic.randomEncounters(100,0,0);
+//        System.out.println("Captain Serge: Nice work. That alien won't be bothering us anymore.");
+//
+//        Utilities.messageDelay(3000);
+//        System.out.println("Captain Serge: Heads up! An alien drone is circling overhead.");
+//        GameLogic.randomEncounters(100,0,0);
+//        System.out.println("Captain Serge: Great!. That drone is scrap metal now.");
+//
+//        Utilities.messageDelay(3000);
+//        System.out.println("Captain Serge: Incoming! An alien form above. We need to take it out, fast");
+//        GameLogic.randomEncounters(100,0,0);
+//        System.out.println("Captain Serge: Well done, soldier. That heavy was a tough one.");
+//        Utilities.messageDelay(1000);
+//        System.out.println("Captain Serge: Now lets advance to the military base");
 
         //add more
         //Save Load State
 
+    }
+    public static String actOneDialog1(){
+        return "Objective: Defend Apex Grove City from initial Zepharan Assult" +
+                "\nCaptain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!";
     }
     public static void actOneMissionTwo(){
 

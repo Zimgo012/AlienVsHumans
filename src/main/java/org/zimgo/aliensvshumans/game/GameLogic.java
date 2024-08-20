@@ -1,5 +1,9 @@
 package org.zimgo.aliensvshumans.game;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import org.zimgo.aliensvshumans.Controllers.InGameController;
 import org.zimgo.aliensvshumans.characters.Characters;
 import org.zimgo.aliensvshumans.characters.Elarix;
 import org.zimgo.aliensvshumans.characters.Humans;
@@ -28,11 +32,12 @@ public class GameLogic {
 
     //showCharacterStats
 
-    public static void showCharacterDetails(Characters character){
-        System.out.println(character.getName());
-        System.out.println("Armor: " + character.getArmor());
-        System.out.println("Health: "+ character.getHealth());
-        System.out.println("Damage: "+ character.getDamage());
+    public static String showCharacterDetails(Characters character){
+
+        return "Name: " + character.getName()
+                + "\nArmor: " + character.getArmor()
+                +"\nHealth: "+ character.getHealth() +
+                "\nDamage: "+ character.getDamage();
     }
 
     //Continues the game
@@ -87,6 +92,7 @@ public class GameLogic {
 
     //battleSystem
     public static void battleSystem(Characters player, Characters alien) {
+
 
         //ToDo: random numbers from 1 - 2 can be implemented here to so each turn can be randomize
 
@@ -159,7 +165,9 @@ public class GameLogic {
         }
     }
 
+
     //print menu
+    //TODO transform this to UI
     public static void printMenu(){
         Utilities.clearConsole();
         while(true){
@@ -201,7 +209,25 @@ public class GameLogic {
 
 
     //MAIN Game Functions
-    public static void startGame(){
+    public static void startGame(InGameController inGameController, Timeline timeline){
+
+        // Add each encounter or event as a KeyFrame in the timeline
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
+            inGameController.setDialog(Story.actOneIntro());
+        }));
+
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), e -> {
+            inGameController.setDialog(Story.actOneDialog1());
+            inGameController.showButtons();
+        }));
+
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), e -> {
+
+        }));
+
+
+        // Start the timeline
+        timeline.play();
 
     }
 

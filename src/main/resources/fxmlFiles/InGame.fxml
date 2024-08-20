@@ -29,7 +29,7 @@
 
             <VBox alignment="TOP_CENTER" prefHeight="400" prefWidth="400" spacing="0" xmlns:fx="http://javafx.com/fxml/1">
 
-                <Text fx:id="dialogHolder" styleClass="main-text" text="Text here" wrappingWidth="550">
+                <Text fx:id="dialogHolder" styleClass="main-text" text="" wrappingWidth="550">
                     <VBox.margin>
                         <Insets top="120.0" />
                     </VBox.margin>
@@ -38,7 +38,11 @@
             </VBox>
         </StackPane>
 
-        <Button fx:id="startGame" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Start"  />
+        <Button fx:id="startGame" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Start"  onAction="#startGame"/>
+        <Button fx:id="backToMain" layoutX="370" layoutY="470.0" mnemonicParsing="false"
+                prefWidth="200" prefHeight="30" text = "Main Menu" onAction="#setBackToMain" />
+        <Button fx:id="fight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#fight" visible="false"/>
+
 
 
 
