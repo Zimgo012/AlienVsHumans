@@ -43,24 +43,27 @@
 
 
 /*buttons*/
+
+#startFight{
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
 #backToMain{
     -fx-scale-x: 0.9;
     -fx-scale-y: 0.9;
 }
 
-
-
+#attackButton{
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
 /*text*/
-#characterSelection{
-    -fx-font-size: 25px;
-    -fx-font-family: Hack;
-    -fx-fill: #3feec6;
+
+#dialogHolder{
+    -fx-font-size: 15px;
+    -fx-font-family: "Andale Mono";
+    -fx-fill: white;
     -fx-padding: 350 0 0 0;
 }
 
-#characterInformation{
-        -fx-font-size: 15px;
-        -fx-font-family: "Andale Mono";
-        -fx-fill: white;
-        -fx-padding: 350 0 0 0;
-}

@@ -21,11 +21,14 @@ public class InGameController {
     Scene scene;
     Timeline timeline;
 
+    boolean inFight = false;
+
     @FXML
     public Text dialogHolder;
     public Button startGame;
     public Button backToMain;
     public Button fight;
+    public Button continueButton;
 
 
 
@@ -59,7 +62,7 @@ public class InGameController {
     public void fight(ActionEvent event) throws IOException {
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/FightScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/InFightScene.fxml"));
         Parent fightRoot = loader.load();
 
 
@@ -79,6 +82,11 @@ public class InGameController {
         stage.show();
 
 
+
+    }
+
+    public void continueButton(ActionEvent event) throws IOException {
+        GameLogic.resumeGame(this, timeline);
     }
 
 
@@ -95,5 +103,16 @@ public class InGameController {
         fight.setVisible(true);
     }
 
+    public void hideContinueButton(){
+        continueButton.setVisible(false);
+    }
+
+    public void showContinueButton(){
+        continueButton.setVisible(true);
+    }
+
+    public void setTimeline(Timeline timeline) {
+        this.timeline = timeline;
+    }
 
 }

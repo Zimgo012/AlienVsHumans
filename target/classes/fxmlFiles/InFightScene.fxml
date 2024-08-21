@@ -13,7 +13,7 @@
 <?import javafx.geometry.Insets?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.zimgo.aliensvshumans.Controllers.FightScene"
+            fx:controller="org.zimgo.aliensvshumans.Controllers.InFightController"
             prefHeight="400.0" prefWidth="600.0">
 
     <children>
@@ -28,7 +28,8 @@
             <Rectangle fill="black" height="600" opacity="0.3" width="600" />
 
             <VBox alignment="TOP_CENTER" prefHeight="400" prefWidth="400" spacing="0" xmlns:fx="http://javafx.com/fxml/1">
-                <Text fx:id="characterInformation" styleClass="main-text" text="" wrappingWidth="550">
+
+                <Text fx:id="dialogHolder" styleClass="main-text" text="" wrappingWidth="550">
                     <VBox.margin>
                         <Insets top="120.0" />
                     </VBox.margin>
@@ -40,7 +41,10 @@
         <Button fx:id="backToMain" layoutX="370" layoutY="470.0" mnemonicParsing="false"
                 prefWidth="200" prefHeight="30" text = "Main Menu" onAction="#setBackToMain"/>
 
-        <Button fx:id="" layoutX="160" layoutY="450.0" mnemonicParsing="false"  prefWidth="100" prefHeight="20" text = "Attack" />
+        <Button fx:id="attackButton" layoutX="160" layoutY="450.0" mnemonicParsing="false"  prefWidth="100" prefHeight="20" text = "Attack" onAction="#attack" disable="true" />
+        <Button fx:id="startFight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#startFight"/>
+        <Button fx:id="exitButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Continue"  onAction="#exitFight" />
+
 
     </children>
 

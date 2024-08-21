@@ -17,4 +17,9 @@ public class Utilities {
             throw new RuntimeException(e);
         }
     }
+
+    //print a separator
+    public static String separator(){
+        return "==========================";
+    }
 }

@@ -71,13 +71,13 @@ public class Characters {
     }
 
     public void attack(Characters characters){
-        System.out.println(this.name + " attacks!");;
+//        System.out.println(this.name + " attacks!");
         int damageOutput = Math.max(0,this.damage - characters.getArmor());
         characters.takeDamage(damageOutput);
 
     }
     public void takeDamage(int damage){
-        System.out.println(this.name + " took " + damage +" damage");
+//        System.out.println(this.name + " took " + damage +" damage");
         this.health = this.health - damage;
     }
     public void useSkills(){}

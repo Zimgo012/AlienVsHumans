@@ -52,6 +52,8 @@ public class CharacterSelection {
 
     @FXML
     private void selectCharacterButton(ActionEvent event) throws IOException {
+
+        //Choose Character
         if (clickCounter == 1) {
             GameLogic.setPlayer(new Soldier());
         } else if (clickCounter == 2) {

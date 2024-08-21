@@ -3,7 +3,7 @@ package org.zimgo.aliensvshumans.game;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
-import org.zimgo.aliensvshumans.Controllers.InGameController;
+import org.zimgo.aliensvshumans.Controllers.*;
 import org.zimgo.aliensvshumans.characters.Characters;
 import org.zimgo.aliensvshumans.characters.Elarix;
 import org.zimgo.aliensvshumans.characters.Humans;
@@ -11,16 +11,20 @@ import org.zimgo.aliensvshumans.characters.Humans;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameLogic {
 
     static Scanner  scan = new Scanner(System.in);
 
     static Characters player;
+    static Characters opponent;
 
     static int actNumber = 1;
     static boolean isRunning;
     int actnumber  = 1;
+
+    //Setter And Getter for characters
 
     public static void setPlayer(Characters player) {
         GameLogic.player = player;
@@ -28,6 +32,14 @@ public class GameLogic {
 
     public static Characters getPlayer() {
         return player;
+    }
+
+    public static Characters getOpponent() {
+        return opponent;
+    }
+
+    public static void setOpponent(Characters opponent) {
+        GameLogic.opponent = opponent;
     }
 
     //showCharacterStats
@@ -47,17 +59,12 @@ public class GameLogic {
     }
 
    //Character Actions
-    public static void chooseAction(Characters attacker, Characters defender){
+    public static void chooseAction(int actionNumber, Characters attacker, Characters defender){
 
         try{
             if (attacker instanceof Humans){ //Player
 
-                System.out.println("Choose Action: "
-                        +"\n[1] Attack");
-
-                int option = scan.nextInt();
-
-                switch (option){
+                switch (actionNumber){
                     case 1:
                         attacker.attack(defender);
                         break;
@@ -89,6 +96,13 @@ public class GameLogic {
 
     }
 
+    //New Battle system
+    public static void battleSystem(){
+
+
+
+    }
+
 
     //battleSystem
     public static void battleSystem(Characters player, Characters alien) {
@@ -111,7 +125,7 @@ public class GameLogic {
             // Player's turn
             System.out.println();
             System.out.println("Player turn! Choose an action");
-            chooseAction(player, alien);
+
 
             // Update health after player's action
             if (alien.getHealth() <= 0) {
@@ -124,7 +138,7 @@ public class GameLogic {
             // Enemy's turn
             System.out.println();
             System.out.println("Enemy turn!");
-            chooseAction(alien, player);
+
 
             // Update health after alien's action
             if (player.getHealth() <= 0) {
@@ -146,22 +160,16 @@ public class GameLogic {
      * @param prob2 Rest Probability
      * @param prob3 Random
      */
-    public static void randomEncounters(int prob1, int prob2, int prob3){
-
+    public static void randomEncounters(int prob1, int prob2, int prob3) {
 
 
         int randomValue = new Random().nextInt(100) + 1; //Generate a random value
 
-        if (randomValue <= prob1){ //80% probability
+        if (randomValue <= prob1) { //80% probability
             Characters enemy = new Elarix();
-            System.out.println("You encounter an alien: " + enemy.getName() );
-            battleSystem(player,enemy);
-        }
-        else if (randomValue <= prob2){ //15% probability
-            System.out.println("Character is resting");
-            Utilities.messageDelay(1000);
-        }else if (randomValue <= prob3){//15% probabilityq
-            System.out.println("uraaaa");
+            System.out.println("You encounter an alien: " + enemy.getName());
+            battleSystem(player, enemy);
+
         }
     }
 
@@ -207,9 +215,20 @@ public class GameLogic {
 
     }
 
-
     //MAIN Game Functions
+
+    public static void resumeGame(InGameController inGameController, Timeline timeline){
+
+
+        if (GameState.isPaused()) {
+            timeline.jumpTo(Duration.seconds(GameState.getCurrentTime()));
+            timeline.play();
+            GameState.setPaused(false);
+        }
+    }
     public static void startGame(InGameController inGameController, Timeline timeline){
+
+        timeline.getKeyFrames().clear();
 
         // Add each encounter or event as a KeyFrame in the timeline
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
@@ -219,10 +238,14 @@ public class GameLogic {
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), e -> {
             inGameController.setDialog(Story.actOneDialog1());
             inGameController.showButtons();
+
+            GameState.setPaused(true);
+            GameState.setCurrentTime(3);
+            timeline.pause();
         }));
 
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), e -> {
-
+            inGameController.setDialog(Story.actOneDialog2());
         }));
 
 
@@ -230,6 +253,53 @@ public class GameLogic {
         timeline.play();
 
     }
+
+    public static void inFight(InFightController inFightController, Timeline timeline){
+
+        opponent = new Elarix(); // new alien object
+        AtomicBoolean someOneDied = new AtomicBoolean(false);
+
+        // Initial display of status
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
+            inFightController.setDialog(Utilities.separator() + "\n" + showCharacterDetails(player)
+                    + "\n" + Utilities.separator() + "\n" + showCharacterDetails(opponent));
+        }));
+
+        // Pause for player's action
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), e -> {
+            // Enable the attack button to allow the player to choose an action
+            inFightController.enableAttackButton(); // Assuming you have a method to enable the button
+//            timeline.stop();
+        }));
+
+        // After the player acts, continue with the opponent's turn
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(7), e -> {
+            opponent.attack(player);
+            inFightController.setDialog("You took " + opponent.getDamage() + " damage");
+
+            // Check if the player or opponent has died
+            if (player.getHealth() <= 0) {
+                inFightController.setDialog("You have been defeated!");
+                someOneDied.set(true);
+            } else if (opponent.getHealth() <= 0) {
+                inFightController.setDialog("You defeated the alien!");
+                someOneDied.set(true);
+            }
+
+            // If no one died, repeat the cycle
+            if (!someOneDied.get()) {
+                inFightController.disableAttackButton(); // Disable the button to prevent premature clicks
+                timeline.playFromStart(); // Restart the timeline for the next round
+
+//                timeline.play();
+            }
+        }));
+
+        timeline.play();
+
+    }
+
+
 
 
 

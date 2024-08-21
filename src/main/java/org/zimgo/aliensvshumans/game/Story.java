@@ -111,6 +111,12 @@ public class Story {
         return "Objective: Defend Apex Grove City from initial Zepharan Assult" +
                 "\nCaptain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!";
     }
+    public static String actOneDialog2(){
+        return "Captain Serge and the player are advancing towards the military base, " +
+                "but the path is fraught with alien resistance." +
+                "As they approach a critical junction, they encounter a random alien threat.";
+    }
+
     public static void actOneMissionTwo(){
 
         Utilities.messageDelay(2000);
