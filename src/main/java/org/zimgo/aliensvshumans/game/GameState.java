@@ -2,22 +2,17 @@ package org.zimgo.aliensvshumans.game;
 
 public class GameState {
 
-    private static double currentTime = 0;
-    private static boolean isPaused = false;
+    private static int currentStoryPoint = 0;
 
-    public static void setCurrentTime(double time) {
-        currentTime = time;
+    public static int getCurrentStoryPoint() {
+        return currentStoryPoint;
     }
 
-    public static double getCurrentTime() {
-        return currentTime;
+    public static void setCurrentStoryPoint(int storyPoint) {
+        currentStoryPoint = storyPoint;
     }
 
-    public static void setPaused(boolean paused) {
-        isPaused = paused;
-    }
-
-    public static boolean isPaused() {
-        return isPaused;
+    public static void resetStoryPoint() {
+        currentStoryPoint = 0;
     }
 }

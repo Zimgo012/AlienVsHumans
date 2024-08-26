@@ -217,40 +217,10 @@ public class GameLogic {
 
     //MAIN Game Functions
 
-    public static void resumeGame(InGameController inGameController, Timeline timeline){
+    public static void startGame(InGameController inGameController){
 
 
-        if (GameState.isPaused()) {
-            timeline.jumpTo(Duration.seconds(GameState.getCurrentTime()));
-            timeline.play();
-            GameState.setPaused(false);
-        }
-    }
-    public static void startGame(InGameController inGameController, Timeline timeline){
-
-        timeline.getKeyFrames().clear();
-
-        // Add each encounter or event as a KeyFrame in the timeline
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
-            inGameController.setDialog(Story.actOneIntro());
-        }));
-
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), e -> {
-            inGameController.setDialog(Story.actOneDialog1());
-            inGameController.showButtons();
-
-            GameState.setPaused(true);
-            GameState.setCurrentTime(3);
-            timeline.pause();
-        }));
-
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), e -> {
-            inGameController.setDialog(Story.actOneDialog2());
-        }));
-
-
-        // Start the timeline
-        timeline.play();
+        inGameController.setDialog(Story.storyline.get(0));
 
     }
 
@@ -284,6 +254,7 @@ public class GameLogic {
             } else if (opponent.getHealth() <= 0) {
                 inFightController.setDialog("You defeated the alien!");
                 someOneDied.set(true);
+                inFightController.hideExitButton();
             }
 
             // If no one died, repeat the cycle

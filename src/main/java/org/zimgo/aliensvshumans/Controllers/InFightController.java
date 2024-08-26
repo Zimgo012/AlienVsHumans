@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.zimgo.aliensvshumans.characters.Characters;
 import org.zimgo.aliensvshumans.game.GameLogic;
+import org.zimgo.aliensvshumans.game.GameState;
 import org.zimgo.aliensvshumans.game.Utilities;
 
 import java.io.IOException;
@@ -111,8 +112,9 @@ public class InFightController {
         stage.setResizable(false);
         stage.show();
 
-        //insert continue button here
-        inGameController.showContinueButton();
+        inGameController.showButtons();
+        inGameController.hideStartButton();
+
     }
 
     //Helper Methods
@@ -129,6 +131,10 @@ public class InFightController {
     private void updateUI(){
 
         setDialog("Alien took " + GameLogic.getPlayer().getDamage() + " damage.");
+    }
+    
+    public void hideExitButton(){
+       exitButton.setVisible(true);
     }
 
 

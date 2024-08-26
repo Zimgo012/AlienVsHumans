@@ -2,18 +2,17 @@ package org.zimgo.aliensvshumans.game;
 
 import org.zimgo.aliensvshumans.characters.Assasin;
 import org.zimgo.aliensvshumans.characters.Soldier;
-import org.zimgo.aliensvshumans.characters.Characters;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Story {
     static Scanner scan = new Scanner(System.in);
 
-    //Use these flags later for act requirements
-    static boolean flag1 = true;
-    static boolean flag2 = true;
-    static boolean flag3 = true;
+    public static ArrayList<String> storyline = new ArrayList<>(List.of
+            (actOneIntro(), actOneMissionOneTitle(), actOneM1D1(), actOneM1D2(), actOneM1D3(), actOneM1D4(),
+            actOneMissionTwo(), actOneM2D1()
+                                                ));
+
 
     //intro
     public static String intro(){
@@ -80,80 +79,34 @@ public class Story {
     public static String actOneMissionOneTitle(){
         return "=======================" + "\n=====  Mission 1  =====" + "\n=======================";
 
-//        System.out.println("Objective: Defend Apex Grove City from initial Zepharan Assult");
-//
-//        System.out.println("Captain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!");
-//        GameLogic.randomEncounters(100,0,0);
-//        System.out.println("Captain Serge: Good job, soldier.");
-//
-//        Utilities.messageDelay(3000);
-//        System.out.println("Captain Serge: Look out! An alien is charging at us. Take it down!");
-//        GameLogic.randomEncounters(100,0,0);
-//        System.out.println("Captain Serge: Nice work. That alien won't be bothering us anymore.");
-//
-//        Utilities.messageDelay(3000);
-//        System.out.println("Captain Serge: Heads up! An alien drone is circling overhead.");
-//        GameLogic.randomEncounters(100,0,0);
-//        System.out.println("Captain Serge: Great!. That drone is scrap metal now.");
-//
-//        Utilities.messageDelay(3000);
-//        System.out.println("Captain Serge: Incoming! An alien form above. We need to take it out, fast");
-//        GameLogic.randomEncounters(100,0,0);
-//        System.out.println("Captain Serge: Well done, soldier. That heavy was a tough one.");
-//        Utilities.messageDelay(1000);
-//        System.out.println("Captain Serge: Now lets advance to the military base");
-
-        //add more
-        //Save Load State
 
     }
-    public static String actOneDialog1(){
+    public static String actOneM1D1(){
         return "Objective: Defend Apex Grove City from initial Zepharan Assult" +
                 "\nCaptain Serge: Hold up! I see an alien scout patrol up ahead. Get ready for a fight!";
     }
-    public static String actOneDialog2(){
+    public static String actOneM1D2(){
         return "Captain Serge and the player are advancing towards the military base, " +
                 "but the path is fraught with alien resistance." +
                 "As they approach a critical junction, they encounter a random alien threat.";
     }
+    public static String actOneM1D3(){
+        return "Watch your step! We’ve got an alien ambush up ahead. They’re trying to block our advance. Get ready!";
+    }
+    public static String actOneM1D4(){
+        return "Captain Serge: Good job, soldier.";
+    }
 
-    public static void actOneMissionTwo(){
-
-        Utilities.messageDelay(2000);
-        Utilities.clearConsole();
-        System.out.println("Captain Serge and the player are advancing towards the military base, " +
+    public static String actOneMissionTwo(){
+        return "Captain Serge and the player are advancing towards the military base, " +
                 "but the path is fraught with alien resistance." +
-                "As they approach a critical junction, they encounter a random alien threat.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Watch your step! We’ve got an alien ambush up ahead. They’re trying to block our advance. Get ready!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Good job, soldier.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Hold on! We’ve got an alien saboteur planting explosives around our route. We need to stop them before they destroy our path!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Well done.");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Incoming! Alien reinforcements are dropping in from the skies. We need to secure the area before they overwhelm us!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: URAAAAA!");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Look out! An alien scout is leading a drone pair. The scout’s calling the shots, and the drones will provide cover. Take them down!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Well done!");
-
-        Utilities.messageDelay(3000);
-        System.out.println("Alert! An alien reconnaissance unit is gathering intel on our movements. " +
-                            "We need to eliminate them before they relay our position!");
-        GameLogic.randomEncounters(100,0,0);
-        System.out.println("Captain Serge: Excellent job with the reconnaissance unit. " +
-                        "Our movements won’t be compromised anymore. We’re almost there.");
-
+                "As they approach a critical junction, they encounter a random alien threat.";
+    }
+    public static String  actOneM2D1(){
+       return "Watch your step! We’ve got an alien ambush up ahead. They’re trying to block our advance. Get ready!";
 
     }
+
     public static void actOneOutro(){
 
         Utilities.messageDelay(3000);

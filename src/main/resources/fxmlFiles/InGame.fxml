@@ -38,11 +38,12 @@
             </VBox>
         </StackPane>
 
-        <Button fx:id="startGame" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Start"  onAction="#startGame"/>
+        <Button fx:id="startGame" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Start"  onAction="#startGame" />
         <Button fx:id="backToMain" layoutX="370" layoutY="470.0" mnemonicParsing="false"
                 prefWidth="200" prefHeight="30" text = "Main Menu" onAction="#setBackToMain" />
         <Button fx:id="fight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#fight" visible="false"/>
-        <Button fx:id="continueButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Continue"  onAction="#continueButton" visible="false"/>
+<!--        <Button fx:id="continueButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Continue"  onAction="#continueButton" visible="false"/>-->
+        <Button fx:id="nextButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "next"  onAction="#nextButton" visible="false"/>
 
 
 

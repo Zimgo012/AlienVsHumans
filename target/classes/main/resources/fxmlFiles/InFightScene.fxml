@@ -43,7 +43,7 @@
 
         <Button fx:id="attackButton" layoutX="160" layoutY="450.0" mnemonicParsing="false"  prefWidth="100" prefHeight="20" text = "Attack" onAction="#attack" disable="true" />
         <Button fx:id="startFight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#startFight"/>
-        <Button fx:id="exitButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Continue"  onAction="#exitFight" />
+        <Button fx:id="exitButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Exit Fight"  onAction="#exitFight" visible="false" />
 
 
     </children>
