@@ -44,6 +44,7 @@
         <Button fx:id="fight" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Fight"  onAction="#fight" visible="false"/>
 <!--        <Button fx:id="continueButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "Continue"  onAction="#continueButton" visible="false"/>-->
         <Button fx:id="nextButton" layoutX="160" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "next"  onAction="#nextButton" visible="false"/>
+        <Button fx:id="settingButton" layoutX="490" layoutY="10.0" mnemonicParsing="false"  prefWidth="150" prefHeight="30" text = "settings" onAction="#settingButton" />
 
 
 

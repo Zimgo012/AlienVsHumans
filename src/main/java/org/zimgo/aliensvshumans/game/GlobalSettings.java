@@ -1,6 +1,6 @@
 package org.zimgo.aliensvshumans.game;
 
-public class GlobalSetting {
+public class GlobalSettings {
 
     private static boolean backgroundMusicEnabled = true;
     private static boolean clickSoundEnabled = true;

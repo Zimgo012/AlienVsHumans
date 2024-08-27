@@ -38,6 +38,13 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-media -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>23-ea+27</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -46,6 +46,8 @@
         <Button fx:id="previousButton" layoutX="360" layoutY="400.0" mnemonicParsing="false"  prefWidth="100" prefHeight="30" text = "previous" onAction="#previousButton" visible="false"/>
         <Button fx:id="selectCharacterButton" layoutX="340" layoutY="200.0" mnemonicParsing="false"  prefWidth="200" prefHeight="5"
                 text = "Select Character" onAction="#selectCharacterButton" visible="false"/>
+        <Button fx:id="settingButton" layoutX="490" layoutY="10.0" mnemonicParsing="false"  prefWidth="150" prefHeight="30" text = "settings" onAction="#settingButton" />
+
 
 
     </children>

@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.zimgo.aliensvshumans.game.GameLogic;
 import org.zimgo.aliensvshumans.game.GameState;
+import org.zimgo.aliensvshumans.game.MusicManager;
 import org.zimgo.aliensvshumans.game.Story;
 
 import java.io.IOException;
@@ -30,11 +31,19 @@ public class InGameController {
 
     @FXML
     public Text dialogHolder;
+    @FXML
     public Button startGame;
+    @FXML
     public Button backToMain;
+    @FXML
     public Button fight;
+    @FXML
     public Button continueButton;
+    @FXML
     public Button nextButton;
+    @FXML
+    private Button settingButton;
+
 
 
 
@@ -114,6 +123,32 @@ public class InGameController {
                 nextButton.setVisible(false);
         }
     }
+
+    public void settingButton(ActionEvent event) throws Exception {
+        MusicManager.playSoundEffect("ClickSound");
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFiles/SettingDialog.fxml"));
+        Parent dialogRoot = fxmlLoader.load();
+
+        // Create a new Stage for the settings dialog
+        Stage settingsStage = new Stage();
+        settingsStage.setTitle("Settings");
+
+        Scene scene = new Scene(dialogRoot, 400, 300); // Set size
+        String css = this.getClass().getResource("/cssFiles/SettingDialog.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
+        settingsStage.setScene(scene);
+
+        // Pass the Stage to the controller
+        SettingDialogController controller = fxmlLoader.getController();
+        controller.setStage(settingsStage);
+
+        // Show the dialog
+        settingsStage.showAndWait();
+    }
+
 
 
     //Helper Class
