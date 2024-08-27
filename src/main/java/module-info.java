@@ -1,6 +1,7 @@
 module org.zimgo.hellofx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
 
     opens org.zimgo.aliensvshumans to javafx.fxml;

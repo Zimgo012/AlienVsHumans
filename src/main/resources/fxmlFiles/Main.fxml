@@ -11,7 +11,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zimgo.aliensvshumans.Controllers.MainController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.zimgo.aliensvshumans.Controllers.MainController">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -55,7 +56,7 @@
        </StackPane>
 
        <Button fx:id="startButton" layoutX="270" layoutY="450.0" mnemonicParsing="false"  text="Start"  onAction="#startGame" />
-       <Button fx:id="settingButton" layoutX="257" layoutY="490.0" mnemonicParsing="false"  text="Settings"  />
+       <Button fx:id="settingButton" layoutX="257" layoutY="490.0" mnemonicParsing="false"  text="Settings"  onAction="#settingButton"/>
 
 
    </children>

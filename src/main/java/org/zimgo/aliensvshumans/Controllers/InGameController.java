@@ -11,8 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.zimgo.aliensvshumans.game.GameLogic;
+import org.zimgo.aliensvshumans.game.GameState;
+import org.zimgo.aliensvshumans.game.MusicManager;
+import org.zimgo.aliensvshumans.game.Story;
 
 import java.io.IOException;
+
 
 public class InGameController {
 
@@ -23,16 +27,28 @@ public class InGameController {
 
     boolean inFight = false;
 
+
+
     @FXML
     public Text dialogHolder;
+    @FXML
     public Button startGame;
+    @FXML
     public Button backToMain;
+    @FXML
     public Button fight;
+    @FXML
     public Button continueButton;
+    @FXML
+    public Button nextButton;
+    @FXML
+    private Button settingButton;
+
 
 
 
     //Buttons on Action
+
     public void setBackToMain(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFiles/Main.fxml"));
@@ -51,14 +67,18 @@ public class InGameController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+
+        GameState.resetStoryPoint();
     }
 
     public void startGame(ActionEvent event) throws IOException {
+
+        GameLogic.startGame(this);
         startGame.setVisible(false);
-        timeline = new Timeline();
-        GameLogic.startGame(this, timeline);
+        nextButton.setVisible(true);
     }
 
+    //This will trigger the fight Scene
     public void fight(ActionEvent event) throws IOException {
 
 
@@ -85,9 +105,50 @@ public class InGameController {
 
     }
 
-    public void continueButton(ActionEvent event) throws IOException {
-        GameLogic.resumeGame(this, timeline);
+
+    //Next Button for dialogs
+    public void nextButton(ActionEvent event) throws IOException {
+
+        GameState.setCurrentStoryPoint(next(GameState.getCurrentStoryPoint()));
+        System.out.println(GameState.getCurrentStoryPoint());
+        setDialog(Story.storyline.get(GameState.getCurrentStoryPoint()));
+
+
+        switch (GameState.getCurrentStoryPoint()){
+            case 4:
+            case 7:
+
+                fight.setVisible(true);
+                startGame.setVisible(false);
+                nextButton.setVisible(false);
+        }
     }
+
+    public void settingButton(ActionEvent event) throws Exception {
+        MusicManager.playSoundEffect("ClickSound");
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFiles/SettingDialog.fxml"));
+        Parent dialogRoot = fxmlLoader.load();
+
+        // Create a new Stage for the settings dialog
+        Stage settingsStage = new Stage();
+        settingsStage.setTitle("Settings");
+
+        Scene scene = new Scene(dialogRoot, 400, 300); // Set size
+        String css = this.getClass().getResource("/cssFiles/SettingDialog.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
+        settingsStage.setScene(scene);
+
+        // Pass the Stage to the controller
+        SettingDialogController controller = fxmlLoader.getController();
+        controller.setStage(settingsStage);
+
+        // Show the dialog
+        settingsStage.showAndWait();
+    }
+
 
 
     //Helper Class
@@ -100,19 +161,22 @@ public class InGameController {
     }
 
     public void showButtons(){
-        fight.setVisible(true);
+       nextButton.setVisible(true);
     }
 
-    public void hideContinueButton(){
-        continueButton.setVisible(false);
+    public void hideStartButton(){
+        startGame.setVisible(false);
     }
 
-    public void showContinueButton(){
-        continueButton.setVisible(true);
-    }
+
 
     public void setTimeline(Timeline timeline) {
         this.timeline = timeline;
+    }
+
+    public int next(int current){
+        return current + 1;
+
     }
 
 }
